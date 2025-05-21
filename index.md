@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="assets/css/custom.css">
 ---
 title: Measuring Compliance of Consent Revocation on the Web
 ---
