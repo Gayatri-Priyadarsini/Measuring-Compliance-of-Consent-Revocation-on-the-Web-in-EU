@@ -1,6 +1,6 @@
 theme: minima
-# title: Revocation Compliance Study
-# description: PETS 2025 – Measuring how websites handle consent revocation under GDPR.
+title: ""
+description: ""
 
 sass:
   style: compressed
