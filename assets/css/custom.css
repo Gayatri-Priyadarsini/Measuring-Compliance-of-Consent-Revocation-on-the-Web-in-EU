@@ -1,0 +1,4 @@
+/* Hide the site header completely */
+.site-header {
+  display: none;
+}
