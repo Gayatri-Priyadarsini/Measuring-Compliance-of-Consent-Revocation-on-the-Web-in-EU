@@ -2,7 +2,6 @@
 title: Measuring Compliance of Consent Revocation on the Web
 ---
 
-# Measuring Compliance of Consent Revocation on the Web
 
 _Accepted at [PETS 2025](https://petsymposium.org/2025/), Washington DC, July 14–19, 2025_  
 [Read the full paper](https://arxiv.org/abs/2411.15414)
