@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Measuring Compliance of Consent Revocation on the Web
 ---
 
