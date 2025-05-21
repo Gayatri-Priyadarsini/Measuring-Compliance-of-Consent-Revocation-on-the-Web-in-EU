@@ -1,3 +1,9 @@
 theme: minima
 title: ""
 description: ""
+
+# Let Jekyll include your custom CSS
+sass:
+  style: compressed
+include:
+  - assets/css
