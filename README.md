@@ -1,1 +1,0 @@
-# Measuring-Compliance-of-Consent-Revocation-on-the-Web-in-EU
