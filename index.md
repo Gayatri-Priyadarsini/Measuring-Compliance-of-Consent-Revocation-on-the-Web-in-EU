@@ -47,7 +47,7 @@ Our study analyzed 200 websites and found widespread **non-compliance** with rev
 
 ## About
 
-Presented at **[PETS 2025](https://petsymposium.org/2025/)**  
+Will be presenting at **[PETS 2025](https://petsymposium.org/2025/)**  
 Washington DC, July 14–19, 2025  
-Authors: *Gayatri Priyadarsini* and collaborators  
+Authors: *Gayatri Priyadarsini Kancherla*, *Nataliia Bielova*, *Cristiana Santos*, *Abhishek Bichhawat*   
 [Read the full paper](https://arxiv.org/abs/2411.15414)
