@@ -1,13 +1,11 @@
 
 # Measuring Compliance of Consent Revocation on the Web
-## 1. Home Page
-```markdown
+
 <link rel="stylesheet" href="assets/css/custom.css">
 
 _Accepted at [PETS 2025](https://petsymposium.org/2025/), Washington DC, July 14–19, 2025_  
 [Read the full paper](https://arxiv.org/abs/2411.15414)
 
----
 
 Our new study reveals widespread non-compliance with GDPR consent revocation requirements. Just 22.7% of Top 200 sites get consent revocation right! 
 
@@ -32,11 +30,6 @@ Out of 281 websites with CMPs, 251 allowed users to revoke consent. We then chec
 
 The General Data Protection Regulation (GDPR) and the ePrivacy Directive (ePD) set out the requirements for obtaining a valid consent when tracking technologies are used on a website. While numerous studies assessed the compliance of consent, one key aspect has been largely overlooked by the research community: consent revocation. According to the GDPR (Art. 7(3), Rec. 42), users have the right to withdraw their consent at any time. Consequently, websites are required to offer a straightforward way to revoke consent. However, it remains unclear whether websites actually provide users with compliant methods to revoke their consent, whether revoked consent is properly recorded, and whether this decision is effectively communicated to third-parties that previously collected the user’s data.
 
-```
-
-## Key Findings Page
-
-```markdown
 # Key Research Findings
 
 ## Finding #1: Non-compliant Revocation Interfaces (48%)
@@ -79,11 +72,6 @@ We discovered three major types of non-compliance:
 - Third parties continued operating with outdated consent information
 - Creates ongoing privacy violations despite user revocation
 
-```
-
-## 5. Resources Page
-
-```markdown
 # Resources
 
 ## Research Materials
