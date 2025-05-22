@@ -46,12 +46,24 @@ We discovered three major types of non-compliance:
 - 32 out of 158 websites used different interfaces for revocation
 - Common violations: Email contact required, external platforms, browser settings delegation
 - Example: "The only available options are to delete cookies from browser settings"
+<p align="center">
+  <img src="/images/figure1.png" alt="Figure 1: Different interface to revoke consent " width="500"/>
+  <br>
+  <em> Consent revocation on https://apple.com, accessed on 20th May 2025. The user can only revoke consent by visiting a privacy policy page and searching for “cookie”, where the only available options are to delete cookies from the browser settings to revoke consent.
+</em>
+</p>
 
-### ⚠️ 1.3 Disproportionate Effort Required (22%)
+### ⚠️ 1.3 Different effort to revoke consent than to grant consent (22%)
 
 - 35 out of 158 websites required significantly more steps for revocation
 - Typical pattern: One-click consent vs. multi-step revocation through privacy policies
 - Creates friction discouraging users from exercising their rights
+
+<p align="center">
+  <img src="/images/figure2.png" alt="Figure 2: Different effort to revoke consent than to grant consent " width="500"/>
+  <br>
+  <em>Consent revocation on http://goo.gl, accessed on 20th May 2025. The user can only revoke consent by visiting a privacy policy page and searching for “cookies”(Step 3), to further look for an option to modify or revoke their consent. In step 7, the user finally reaches the link to open a banner(screenshot not included), which is different from the initial banner(step 1).</em>
+</p>
 
 ## Finding #2: Cookies Persist Despite Revocation (57.5%)
 
