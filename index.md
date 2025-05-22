@@ -9,8 +9,6 @@ _Accepted at [PETS 2025](https://petsymposium.org/2025/), Washington DC, July 14
 
 Our new study reveals widespread non-compliance with GDPR consent revocation requirements. Just 22.7% of Top 200 sites get consent revocation right! 
 
-[Explore the findings](#findings)
-
 ### Our Study
 
 Our legal-empirical research paper addressed this gap by analysing consent revocation mechanisms on 200 websites. We assessed their compliance and we have found that: 
