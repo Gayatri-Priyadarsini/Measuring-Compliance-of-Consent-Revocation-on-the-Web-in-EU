@@ -39,10 +39,10 @@ By analysing the revocation interface, we have found that only 51% (82 of 158 we
 - ⚖️ **Legal requirement:** Revoking consent must be as easy as giving it and accessible through the same interface. Users shouldn’t have to search throughout privacy policies, send emails, or visit external sites to revoke consent. Such complex interfaces are considered non-compliant.   
  
 - 📊 **Results:**
-- 20% websites (32 out of 158) provide consent revocation through interfaces that differ from the initial consent banner. This practice increases the burden on users, who must spend additional effort to understand and navigate these different interfaces.
-- We observed revocation options that require users to delete cookies from the browser settings, contact website owners via email, or redirect the user to third-party platforms, such as  youronlinechoices.eu or aboutads.info.
-- One website, tumblr.com, even required users to log in before they could revoke their consent.
-- These violations are found on popular websites such as apple.com, wordpress.org, medium.com, and discord.com.
+ - 20% websites (32 out of 158) provide consent revocation through interfaces that differ from the initial consent banner. This practice increases the burden on users, who must spend additional effort to understand and navigate these different interfaces.
+ - We observed revocation options that require users to delete cookies from the browser settings, contact website owners via email, or redirect the user to third-party platforms, such as  youronlinechoices.eu or aboutads.info.
+ - One website, tumblr.com, even required users to log in before they could revoke their consent.
+ - These violations are found on popular websites such as apple.com, wordpress.org, medium.com, and discord.com.
 
 <p align="center">
   <img src="/images/figure1.png" alt="Figure 1: Different interface to revoke consent " width="500"/>
@@ -55,9 +55,9 @@ By analysing the revocation interface, we have found that only 51% (82 of 158 we
 
 - ⚖️ **Legal requirement:** Revoking consent must be as easy as giving it, which means it should entail the same level of effort. The number of steps and actions, like clicks or gestures for revoking consent, must match those used to grant consent. Any other more complex mechanism is considered potentially non-compliant.
 
--📊 **Results:**
-- 22% websites (35 out of 158) allow to revoke consent using the same interface used to collect consent. However, while the consent banner to grant permission appears immediately upon visiting the site, revoking consent typically requires navigating through two or more steps to access the revocation interface.
-- These violations are found on popular websites of big tech such as goog.gl, twitter.com, google.com and tiktok.com.   
+- 📊 **Results:**
+ - 22% websites (35 out of 158) allow to revoke consent using the same interface used to collect consent. However, while the consent banner to grant permission appears immediately upon visiting the site, revoking consent typically requires navigating through two or more steps to access the revocation interface.
+ - These violations are found on popular websites of big tech such as goog.gl, twitter.com, google.com and tiktok.com.   
 
 <p align="center">
   <img src="/images/figure2.png" alt="Figure 2: Different effort to revoke consent than to grant consent " width="500"/>
@@ -69,17 +69,17 @@ By analysing the revocation interface, we have found that only 51% (82 of 158 we
 
 - ⚖️ **Legal requirements:** Users have the right to revoke their consent at any time. This means websites must make it easy for users to revoke consent by providing a clear, visible, and accessible way to do so. If a website doesn’t offer this right though a visible accessible mechanism, or hides it in a way that makes it hard to find it, then consent becomes invalid. As a result, any personal data the website continues to process without consent violates the GDPR lawfulness principle. 
 - 📊 **Results:**
-- 9 out of 158 websites provided no way to revoke consent
-- 4 websites stored advertising/analytics cookies without consent mechanisms
-- These violations are found on popular websites such as un.org (United Nations), vk.com (Russian Social network), and weibo.com (Chinese Social network). 
+ - 9 out of 158 websites provided no way to revoke consent
+ - 4 websites stored advertising/analytics cookies without consent mechanisms
+ - These violations are found on popular websites such as un.org (United Nations), vk.com (Russian Social network), and weibo.com (Chinese Social network). 
 
 
 ## Finding #2: Websites continue to store advertising and analytics cookies even after consent has been revoked (57.5%)
 
 - ⚖️ **Legal requirement:** Any organization that collected or received data based on consent must stop processing it upon receiving a revocation request. Unless another valid legal basis exists, all data obtained through consent must be deleted, even if the user does not request its deletion.
 - 📊 **Results:**
-- ❌ 69 out of 120 websites kept advertising and analytics cookies after revocation
-- These violations are found on popular websites such as microsoft.com, twitter.com, amazon.com, youtu.be and linkedin.com. 
+ - ❌ 69 out of 120 websites kept advertising and analytics cookies after revocation
+ - These violations are found on popular websites such as microsoft.com, twitter.com, amazon.com, youtu.be and linkedin.com. 
 
 ## Finding #3: Websites fail to store or communicate consent revocation (66%)
 By analysing storage and communication of consent revocation behind the interface, we have found two main types of violations: on 25% of websites (47 out of 191) there was inconsistency in registering the revoked consent. Additionally, 74% of websites (100 out of 136) communicated consent acceptance to third-parties but did not communicate consent revocation to all of them.
@@ -93,9 +93,9 @@ By analysing storage and communication of consent revocation behind the interfac
   consent (when user accepts all) and negative consent (when user rejects all) [^positive], to verify whether websites store and communicate the user’s choice correctly.
 
 - 📊 **Results:**
-- 12.5% websites (17 out of 136) using CMPs that implement IAB Europe Transparency and Consent Framework, and 14.5% websites (22 out of 152) using OneTrust CMP store a positive consent even after the user revoked consent.
--  We explored the reason for such violation and found that many websites simply do not update their consent storage when the user revokes consent: 9.3% websites (15 out of 136) using IAB TCF-based CMPs and 10.5% websites (16 out of 152) using OneTrust CMP.
--  These violations are found on popular websites such as msn.com, cisco.com, and forbes.com. 
+ - 12.5% websites (17 out of 136) using CMPs that implement IAB Europe Transparency and Consent Framework, and 14.5% websites (22 out of 152) using OneTrust CMP store a positive consent even after the user revoked consent.
+ -  We explored the reason for such violation and found that many websites simply do not update their consent storage when the user revokes consent: 9.3% websites (15 out of 136) using IAB TCF-based CMPs and 10.5% websites (16 out of 152) using OneTrust CMP.
+ -  These violations are found on popular websites such as msn.com, cisco.com, and forbes.com. 
 
 ### ❌ 3.2 Not communicating consent revocation to all third-parties (74.2%)
 
@@ -103,9 +103,9 @@ By analysing storage and communication of consent revocation behind the interfac
 - Third parties can get informed of the status of user consent via two mechanisms: either they use APIs provided by the CMPs within the browser to access consent decisions, or they can be informed via HTTP requests with consent decisions sent to such third-party servers.
   
 - 📊 **Results:**
-- We found that many third parties are not informed when users revoke consent. On 9.6% of websites (23 out of 238), at least one third party that actively used the API to retrieve positive consent after user acceptance did not use the API again to get informed about the user’s consent revocation.
-- Additionally, on 74% of websites (101 out of 136), at least one third party that received consent through an HTTP request after acceptance did not receive the information about consent revocation.
-- These violations are found on popular websites such as cnn.com, wsj.com, and bbc.com.
+ - We found that many third parties are not informed when users revoke consent. On 9.6% of websites (23 out of 238), at least one third party that actively used the API to retrieve positive consent after user acceptance did not use the API again to get informed about the user’s consent revocation.
+ - Additionally, on 74% of websites (101 out of 136), at least one third party that received consent through an HTTP request after acceptance did not receive the information about consent revocation.
+ - These violations are found on popular websites such as cnn.com, wsj.com, and bbc.com.
 
 # Resources
 
