@@ -89,8 +89,8 @@ By analysing storage and communication of consent revocation behind the interfac
 
 - ⚖️ **Legal requirement:** Websites are required to record user's decision when they revoke consent. This means that whatever choice the user makes in the consent revocation interface, it should be recorded accordingly by the website and stored in the browser. If a website stores a different choice (for example, [storing “accept” when the user clicked “reject”](https://www-sop.inria.fr/members/Nataliia.Bielova/cookiebanners/)), that is a violation of data protection rules.
 
-- We analysed consent stored in the browser or accessed it through specific APIs, using our interpretation of both positive [^positive]
-  consent (when user accepts all) and negative consent (when user rejects all), to verify whether websites store and communicate the user’s choice correctly.
+- We analysed consent stored in the browser or accessed it through specific APIs, using our interpretation of both positive
+  consent (when user accepts all) and negative consent (when user rejects all) [^positive], to verify whether websites store and communicate the user’s choice correctly.
 
 - 📊 **Results:**
 - 12.5% websites (17 out of 136) using CMPs that implement IAB Europe Transparency and Consent Framework, and 14.5% websites (22 out of 152) using OneTrust CMP store a positive consent even after the user revoked consent.
