@@ -3,7 +3,7 @@ title: "Measuring Compliance of Consent Revocation on the Web"
 description: ""
 
 # Let Jekyll include your custom CSS
-sass:
-  style: compressed
-include:
-  - assets/css
+# sass:
+#   style: compressed
+# include:
+#   - assets/css
