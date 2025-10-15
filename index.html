@@ -3,40 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Consent Revocation Analysis</title>
+  <title>Consent Revocation Study</title>
   <style>
+    /* Base Styles */
     body {
       font-family: "Inter", Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #f9fafb;
+      background: #f3f4f6;
       color: #111827;
       line-height: 1.6;
     }
+    a {
+      color: #1d4ed8;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Header */
     header {
-      background-color: #1e3a8a;
-      color: white;
-      padding: 2rem 1rem;
+      background-color: #1e40af;
+      color: #ffffff;
+      padding: 3rem 1rem;
       text-align: center;
     }
     header h1 {
       margin: 0;
-      font-size: 2rem;
+      font-size: 2.5rem;
     }
+    header p {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Main container */
     main {
       max-width: 900px;
-      margin: 2rem auto;
+      margin: -2rem auto 2rem auto;
       padding: 0 1rem;
     }
+
+    /* Section cards */
     section {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      padding: 1.5rem;
+      background: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
       margin-bottom: 2rem;
     }
-    h2 {
-      color: #1e3a8a;
+    section h2 {
+      color: #1e40af;
       margin-top: 0;
     }
     .subheading {
@@ -44,9 +64,10 @@
       margin-top: 1rem;
       color: #374151;
     }
+
+    /* Example container (side-by-side) */
     .example {
       display: flex;
-      flex-wrap: wrap;
       gap: 1rem;
       align-items: flex-start;
       margin-top: 1rem;
@@ -56,17 +77,33 @@
     }
     .example img {
       flex: 1 1 40%;
-      border-radius: 8px;
+      border-radius: 12px;
       max-width: 100%;
       height: auto;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
+
+    /* Findings summary */
+    .findings {
+      background: #dbeafe;
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    .findings ul {
+      margin: 0;
+      padding-left: 1.5rem;
+      color: #1e3a8a;
+    }
+
+    /* Footer */
     footer {
       text-align: center;
       font-size: 0.9rem;
       color: #6b7280;
-      margin: 2rem 0;
+      padding: 2rem 1rem;
     }
+
+    /* Responsive */
     @media (max-width: 700px) {
       .example {
         flex-direction: column;
@@ -75,71 +112,82 @@
   </style>
 </head>
 <body>
+
+  <!-- Header -->
   <header>
-    <h1>Measuring Usability and Compliance of Consent Revocation</h1>
-    <p>Findings from our semi-automated study of cookie banners across regions</p>
+    <h1>Measuring Compliance of Consent Revocation on the Web</h1>
+    <p>
+      Our study analyzed popular websites to assess whether consent revocation mechanisms comply with GDPR and ePrivacy Directive requirements. Widespread non-compliance was observed in interface design, consent storage, and tracking behavior.
+    </p>
   </header>
 
   <main>
-    <section id="summary">
-      <h2>Summary</h2>
-      <p>
-        Our study analyzed 158 websites to assess whether consent revocation complies
-        with GDPR and ePrivacy Directive requirements. We examined the ease of revocation,
-        the consistency of interfaces, and whether consent withdrawal truly stops tracking.
-        Four major usability and compliance issues were identified.
-      </p>
-    </section>
-
-    <section id="diff-interface">
+    <!-- Section 1: Different Interface -->
+    <section>
       <h2>1. Different Interface to Revoke Consent</h2>
       <p class="subheading">Legal Expectation:</p>
-      <p>Revoking consent should be as easy and accessible as giving it, ideally through the same interface (e.g., the banner).</p>
-      
+      <p>Revoking consent should be as easy as giving it, preferably through the same interface (e.g., the banner).</p>
+
       <p class="subheading">Result:</p>
-      <p>About 20% of websites (32/158) provide a different or hidden interface for revocation, often requiring users to revisit privacy policies or find secondary links.</p>
-      
+      <p>20% of websites (32/158) provide a separate or hidden interface, requiring extra effort from users.</p>
+
       <p class="subheading">Example:</p>
       <div class="example">
         <div class="example-text">
-          <p><strong>WordPress</strong> offers a separate “Cookie Settings” page for revocation instead of allowing users to modify choices via the original banner.</p>
+          <p><strong>WordPress:</strong> Users must go to a separate “Cookie Settings” page to revoke consent instead of using the original banner interface.</p>
         </div>
-        <img src="images/figure1.png" alt="WordPress consent revocation interface" />
+        <img src="images/figure1.png" alt="WordPress consent revocation example" />
       </div>
     </section>
 
-    <section id="more-effort">
-      <h2>2. More Effort Required to Revoke Consent</h2>
+    <!-- Section 2: More Effort -->
+    <section>
+      <h2>2. More Effort to Revoke Consent</h2>
       <p class="subheading">Legal Expectation:</p>
-      <p>The effort to withdraw consent must not exceed that of giving consent (Article 7(3) GDPR).</p>
-      
+      <p>Revoking consent must require no more steps than giving consent.</p>
+
       <p class="subheading">Result:</p>
-      <p>40% of websites require additional steps for revocation — such as navigating multiple menus, clearing cookies, or clicking through several links.</p>
-      
+      <p>22% of websites (35/158) require more steps to revoke consent, creating usability friction.</p>
+
       <p class="subheading">Example:</p>
       <div class="example">
         <div class="example-text">
-          <p><strong>Google</strong> requires users to access multiple submenus to change cookie preferences, whereas giving consent takes only one click on the banner.</p>
+          <p><strong>Google:</strong> Multiple nested menus must be navigated to revoke consent, whereas granting consent is a single click on the banner.</p>
         </div>
-        <img src="images/figure2.png" alt="Google consent revocation flow" />
+        <img src="images/figure2.png" alt="Google consent revocation example" />
       </div>
     </section>
 
-    <section id="storage">
+    <!-- Section 3: Storage & Communication -->
+    <section>
       <h2>3. Storage & Communication Issues</h2>
       <p class="subheading">Result:</p>
-      <p>In 15% of cases, cookie preference storage was unreliable — settings reverted after reload or were stored locally without server synchronization, potentially losing user preferences.</p>
+      <p>15% of websites store revocation inconsistently, fail to update consent storage, or do not communicate revocation to all third parties.</p>
     </section>
 
-    <section id="tracking">
+    <!-- Section 4: Tracking Continues -->
+    <section>
       <h2>4. Tracking Continues After Revocation</h2>
       <p class="subheading">Result:</p>
-      <p>About 10% of tested websites continued to load tracking scripts even after consent was revoked, violating the GDPR requirement for valid consent withdrawal.</p>
+      <p>57% of websites continue to store tracking cookies even after consent has been revoked, violating GDPR requirements.</p>
+    </section>
+
+    <!-- Findings Summary -->
+    <section class="findings">
+      <h2>Key Findings</h2>
+      <ul>
+        <li>49% of websites offer non-compliant revocation interfaces</li>
+        <li>66% fail to store or communicate consent revocation correctly</li>
+        <li>57% continue to store tracking cookies after consent revocation</li>
+      </ul>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
-    © 2025 — Consent Revocation Study | IIT Gandhinagar
+    © 2025 Gayatri Priyadarsini Kancherla | IIT Gandhinagar | 
+    <a href="https://petsymposium.org/popets/2025/popets-2025-0133.pdf" target="_blank">Read Full Paper (PETS 2025)</a>
   </footer>
+
 </body>
 </html>
