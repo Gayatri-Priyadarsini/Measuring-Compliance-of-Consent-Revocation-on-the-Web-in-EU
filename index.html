@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Johnny Can't Revoke Consent Either — Measuring Consent Revocation (PETS 2025)</title>
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--muted:#9aa4b2;--accent:#6ee7b7;--glass: rgba(255,255,255,0.03)}
+    *{box-sizing:border-box}body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;background:linear-gradient(180deg,#071226 0%, #071a2e 60%);color:#e6eef6}
+    .container{max-width:1100px;margin:32px auto;padding:24px}
+    header{display:flex;gap:16px;align-items:center}
+    .logo{width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,#0ea5a9,#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:800;color:#061023}
+    h1{margin:0;font-size:28px}
+    .byline{color:var(--muted);margin-top:6px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:22px}
+    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.7);border:1px solid rgba(255,255,255,0.03)}
+    .stat{font-size:28px;font-weight:700}
+    .muted{color:var(--muted);font-size:13px}
+    .section{margin-top:28px}
+    .lead{color:#cfe7f3}
+    .authors{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
+    .author{background:var(--glass);padding:10px;border-radius:10px;font-size:13px}
+    .cta{display:inline-block;margin-top:14px;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,#2563eb,#7c3aed);color:white;text-decoration:none;font-weight:600}
+    footer{margin-top:36px;color:var(--muted);font-size:13px;text-align:center}
+    pre{white-space:pre-wrap}
+    .cols{display:grid;grid-template-columns:1fr 380px;gap:16px}
+    @media (max-width:900px){.cols{grid-template-columns:1fr}}
+    .chip{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.02);font-size:13px}
+    .recommend{background:linear-gradient(90deg,rgba(124,58,237,0.12),rgba(14,165,164,0.06));padding:12px;border-radius:8px}
+    a.link{color:var(--accent)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">PETS</div>
+      <div>
+        <h1>Johnny Can’t Revoke Consent Either</h1>
+        <div class="byline">Measuring Compliance of Consent Revocation on the Web — PETS 2025</div>
+        <div class="authors">
+          <div class="author">Gayatri P. Kancherla — IIT Gandhinagar</div>
+          <div class="author">Nataliia Bielova — Inria / Univ Côte d'Azur</div>
+          <div class="author">Cristiana Santos — Utrecht University</div>
+          <div class="author">Abhishek Bichhawat — IIT Gandhinagar</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section cols">
+      <div>
+        <div class="card">
+          <div class="muted">Abstract</div>
+          <p class="lead">This study measures how websites implement and communicate <strong>consent revocation</strong> (the right to withdraw consent under the GDPR) on popular websites. We audited Tranco’s top-200 sites and CMPs (IAB TCF and OneTrust) to check whether revocation is available, correctly recorded, and signalled to third parties.</p>
+          <a class="cta" href="https://petsymposium.org/popets/2025/popets-2025-0133.pdf" target="_blank">Read the full paper (PDF)</a>
+          <div style="margin-top:12px" class="muted">Licensed under CC BY 4.0</div>
+        </div>
+
+        <div class="grid" style="margin-top:12px">
+          <div class="card">
+            <div class="muted">Revocation interface — different / hidden</div>
+            <div class="stat">19.9%</div>
+            <div class="muted">Websites that put revocation behind a different interface (e.g., privacy policy).</div>
+          </div>
+
+          <div class="card">
+            <div class="muted">More effort to revoke than accept</div>
+            <div class="stat">20.5%</div>
+            <div class="muted">Sites requiring extra steps to revoke consent compared to a single-step "accept".</div>
+          </div>
+
+          <div class="card">
+            <div class="muted">No revocation mechanism</div>
+            <div class="stat">2.5%</div>
+            <div class="muted">Sites that do not offer a visible revocation option.</div>
+          </div>
+
+          <div class="card">
+            <div class="muted">Cookies kept after revocation</div>
+            <div class="stat">57.5%</div>
+            <div class="muted">Sites that continue to store analytics/advertising cookies after revocation.</div>
+          </div>
+
+          <div class="card">
+            <div class="muted">Third-parties not notified</div>
+            <div class="stat">74.2%</div>
+            <div class="muted">Third-parties informed on acceptance but not informed on revocation.</div>
+          </div>
+
+          <div class="card">
+            <div class="muted">Positive consent stored after revocation (TCF)</div>
+            <div class="stat">16.2%</div>
+            <div class="muted">IAB TCF websites that still store a positive consent string after revocation.</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <div class="muted">Key takeaways</div>
+          <ul>
+            <li>Many sites make revocation harder than granting consent — a legal and usability problem.</li>
+            <li>Revocation is often not persisted correctly, and third-parties are rarely informed.</li>
+            <li>Regulators and CMPs should standardize revocation signalling and storage.</li>
+          </ul>
+        </div>
+      </div>
+
+      <aside>
+        <div class="card">
+          <div class="muted">Methodology</div>
+          <p class="muted">Automated and manual audit of Tranco top-200 websites, and deeper analysis of 281 sites using IAB TCF or OneTrust CMPs to test storage and third-party communication.</p>
+
+          <div style="margin-top:12px" class="muted">Presentation</div>
+          <p class="muted">This paper will be presented at PETS 2025, Washington DC — 14–19 July 2025.</p>
+
+          <div style="margin-top:12px" class="muted">Contact</div>
+          <p style="font-size:13px">Gayatri — <a class="link" href="mailto:gayatripriyadarsini@iitgn.ac.in">gayatripriyadarsini@iitgn.ac.in</a></p>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <div class="muted">Visual: Revocation vs Acceptance</div>
+          <canvas id="revocationChart" width="380" height="220"></canvas>
+          <script>
+            const ctx = document.getElementById('revocationChart');
+            new Chart(ctx, {
+              type: 'doughnut',
+              data: {
+                labels: ['Different/hidden','More effort','No revocation','Compliant'],
+                datasets: [{data:[19.9,20.5,2.5,57.1],cutout:'60%'}]
+              },
+              options:{plugins:{legend:{position:'bottom',labels:{color:'#cfe7f3'}}}}
+            });
+          </script>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <div class="muted">Recommendations</div>
+          <div class="recommend">
+            <ol>
+              <li>Make revocation as visible and as easy as acceptance (single step).</li>
+              <li>Standardize revocation storage formats & APIs so third-parties can be reliably informed.</li>
+              <li>Require CMPs to implement server-side notifications to third-parties when revocation happens.</li>
+            </ol>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="card">
+        <div class="muted">Detailed findings & dataset</div>
+        <p class="muted">The paper contains detailed tables, examples, and a dataset of audited sites. For reproduction, consult the paper and the appendix.</p>
+        <div style="margin-top:8px"><a class="link" href="https://petsymposium.org/popets/2025/popets-2025-0133.pdf" target="_blank">Open the PETS 2025 paper (official PDF)</a></div>
+      </div>
+    </section>
+
+    <footer>
+      This page was generated from the PETS 2025 paper. To host on GitHub Pages: create a repository named <code>yourusername.github.io</code>, add this file as <code>index.html</code>, and push to the main branch.
+      <div style="margin-top:10px;color:var(--muted)">Suggested git commands: <pre>git init
+git add index.html
+git commit -m "Initial site for PETS2025 paper"
+git branch -M main
+git remote add origin https://github.com/yourusername/yourusername.github.io.git
+git push -u origin main</pre></div>
+    </footer>
+  </div>
+</body>
+</html>
