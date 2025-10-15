@@ -78,11 +78,28 @@
           <div class="muted">Detailed Violations and Examples</div>
           <h3>1. Different Interface to Revoke Consent</h3>
           <p>According to GDPR, revocation must be as easy as giving consent and accessible through the same interface. However, 20% of websites use completely different mechanisms. For instance, <strong>apple.com</strong> requires users to locate revocation instructions hidden within the privacy policy, often redirecting them to browser settings.</p>
-          <div class="example">Example: On <em>apple.com</em>, users must open “Privacy Policy → Cookies” and manually delete cookies through browser settings — an approach that fails accessibility and simplicity standards.</div>
+          <div class="example" style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-start;">
+            <!-- Text column -->
+            <div style="flex: 1 1 55%;">
+              Example: On <em>wordpress.com</em>, users must open “Privacy Policy → Cookies” and manually delete cookies through browser settings — an approach that fails accessibility and simplicity standards.
+            </div>
+          
+            <!-- Image column -->
+            <img src="images/figure1.png" alt="wordpress.com consent revocation interface" style="flex: 1 1 40%; border-radius: 8px; max-width: 100%; box-shadow: 0 2px 6px rgba(0,0,0,0.1);" />
+          </div>
 
           <h3>2. More Effort to Revoke than Accept</h3>
           <p>22% of websites require multiple steps to revoke consent compared to a single click for “Accept all.” For example, <strong>google.com</strong> and <strong>twitter.com</strong> require navigating through several menus to reopen the banner.</p>
-          <div class="example">Example: On <em>goo.gl</em>, revoking consent took seven steps — starting from Privacy Policy navigation to finding a link buried under “cookies.”</div>
+          <!-- <div class="example">Example: On <em>goo.gl</em>, revoking consent took seven steps — starting from Privacy Policy navigation to finding a link buried under “cookies.”</div> -->
+          <div class="example" style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-start;">
+            <!-- Text column -->
+            <div style="flex: 1 1 55%;">
+              Example: On <em>goo.gl</em>, revoking consent took seven steps — starting from Privacy Policy navigation to finding a link buried under “cookies".
+            </div>
+          
+            <!-- Image column -->
+            <img src="images/figure2.png" alt="goo.gl consent revocation interface" style="flex: 1 1 40%; border-radius: 8px; max-width: 100%; box-shadow: 0 2px 6px rgba(0,0,0,0.1);" />
+          </div>
 
           <h3>3. Absence of a Revocation Mechanism</h3>
           <p>6% of websites, including <strong>un.org</strong> and <strong>weibo.com</strong>, provided no revocation option at all. Such sites continue to collect analytics and advertising data, violating the GDPR’s lawfulness principle.</p>
