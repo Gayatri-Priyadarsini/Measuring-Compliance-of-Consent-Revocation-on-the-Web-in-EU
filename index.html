@@ -1,74 +1,145 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { motion } from "framer-motion";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consent Revocation Analysis</title>
+  <style>
+    body {
+      font-family: "Inter", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9fafb;
+      color: #111827;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #1e3a8a;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    h2 {
+      color: #1e3a8a;
+      margin-top: 0;
+    }
+    .subheading {
+      font-weight: bold;
+      margin-top: 1rem;
+      color: #374151;
+    }
+    .example {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-top: 1rem;
+    }
+    .example-text {
+      flex: 1 1 55%;
+    }
+    .example img {
+      flex: 1 1 40%;
+      border-radius: 8px;
+      max-width: 100%;
+      height: auto;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin: 2rem 0;
+    }
+    @media (max-width: 700px) {
+      .example {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Measuring Usability and Compliance of Consent Revocation</h1>
+    <p>Findings from our semi-automated study of cookie banners across regions</p>
+  </header>
 
-export default function ConsentRevocation() {
-  const sections = [
-    {
-      title: "Different interface to revoke consent",
-      legal: "Revoking consent must be as easy as giving it and accessible through the same interface. Users shouldn’t have to search throughout privacy policies, send emails, or visit external sites to revoke consent.",
-      results: "20% websites (32 out of 158) provide consent revocation through interfaces that differ from the initial consent banner. Users must sometimes delete cookies manually or contact website owners via email.",
-      examples: [
-        {
-          name: "apple.com",
-          description: "Users must visit the privacy policy and manually search for the word 'cookie' to find instructions to delete cookies from browser settings to revoke consent.",
-          image: "/images/figure1.png",
-        },
-      ],
-    },
-    {
-      title: "More effort to revoke consent than to give consent",
-      legal: "Revoking consent must be as easy as giving it, requiring the same number of steps or clicks.",
-      results: "22% of websites (35 out of 158) require more steps to revoke consent than to grant it.",
-      examples: [
-        {
-          name: "goo.gl",
-          description: "User must navigate through multiple steps and pages to find the revocation link hidden in the privacy policy.",
-          image: "/images/figure2.png",
-        },
-      ],
-    },
-    {
-      title: "Absence of a revocation mechanism",
-      legal: "Users have the right to revoke consent at any time. Websites must make it easy and visible to do so.",
-      results: "6% of websites (9 out of 158) did not provide any means to revoke consent.",
-    },
-  ];
+  <main>
+    <section id="summary">
+      <h2>Summary</h2>
+      <p>
+        Our study analyzed 158 websites to assess whether consent revocation complies
+        with GDPR and ePrivacy Directive requirements. We examined the ease of revocation,
+        the consistency of interfaces, and whether consent withdrawal truly stops tracking.
+        Four major usability and compliance issues were identified.
+      </p>
+    </section>
 
-  return (
-    <div className="p-10 space-y-10">
-      <section className="text-center">
-        <h1 className="text-5xl font-bold mb-4">Measuring Compliance of Consent Revocation on the Web</h1>
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-          This study investigates how websites implement consent revocation in accordance with GDPR and ePrivacy Directive. Our analysis of 200 popular websites reveals widespread non-compliance in revocation mechanisms, consent storage, and communication to third parties.
-        </p>
-      </section>
+    <section id="diff-interface">
+      <h2>1. Different Interface to Revoke Consent</h2>
+      <p class="subheading">Legal Expectation:</p>
+      <p>Revoking consent should be as easy and accessible as giving it, ideally through the same interface (e.g., the banner).</p>
+      
+      <p class="subheading">Result:</p>
+      <p>About 20% of websites (32/158) provide a different or hidden interface for revocation, often requiring users to revisit privacy policies or find secondary links.</p>
+      
+      <p class="subheading">Example:</p>
+      <div class="example">
+        <div class="example-text">
+          <p><strong>WordPress</strong> offers a separate “Cookie Settings” page for revocation instead of allowing users to modify choices via the original banner.</p>
+        </div>
+        <img src="images/figure1.png" alt="WordPress consent revocation interface" />
+      </div>
+    </section>
 
-      {sections.map((s, i) => (
-        <Card key={i} className="p-6 shadow-lg rounded-2xl">
-          <CardContent className="space-y-6">
-            <motion.h2 className="text-2xl font-semibold text-blue-600">{s.title}</motion.h2>
-            <p><strong>⚖ Legal Requirement:</strong> {s.legal}</p>
-            <p><strong>📊 Results:</strong> {s.results}</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {s.examples.map((ex, j) => (
-                <div key={j} className="flex flex-col md:flex-row items-center gap-4 border rounded-xl p-4 bg-gray-50">
-                  <div className="md:w-1/2">
-                    <img
-                      src={ex.image}
-                      alt={ex.name}
-                      className="rounded-xl shadow-md w-full h-auto object-cover"
-                    />
-                  </div>
-                  <div className="md:w-1/2">
-                    <h3 className="text-lg font-semibold">{ex.name}</h3>
-                    <p className="text-gray-700">{ex.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
-  );
-}
+    <section id="more-effort">
+      <h2>2. More Effort Required to Revoke Consent</h2>
+      <p class="subheading">Legal Expectation:</p>
+      <p>The effort to withdraw consent must not exceed that of giving consent (Article 7(3) GDPR).</p>
+      
+      <p class="subheading">Result:</p>
+      <p>40% of websites require additional steps for revocation — such as navigating multiple menus, clearing cookies, or clicking through several links.</p>
+      
+      <p class="subheading">Example:</p>
+      <div class="example">
+        <div class="example-text">
+          <p><strong>Google</strong> requires users to access multiple submenus to change cookie preferences, whereas giving consent takes only one click on the banner.</p>
+        </div>
+        <img src="images/figure2.png" alt="Google consent revocation flow" />
+      </div>
+    </section>
+
+    <section id="storage">
+      <h2>3. Storage & Communication Issues</h2>
+      <p class="subheading">Result:</p>
+      <p>In 15% of cases, cookie preference storage was unreliable — settings reverted after reload or were stored locally without server synchronization, potentially losing user preferences.</p>
+    </section>
+
+    <section id="tracking">
+      <h2>4. Tracking Continues After Revocation</h2>
+      <p class="subheading">Result:</p>
+      <p>About 10% of tested websites continued to load tracking scripts even after consent was revoked, violating the GDPR requirement for valid consent withdrawal.</p>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 — Consent Revocation Study | IIT Gandhinagar
+  </footer>
+</body>
+</html>
