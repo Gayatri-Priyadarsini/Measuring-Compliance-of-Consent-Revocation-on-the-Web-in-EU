@@ -1,152 +1,74 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Measuring Compliance of Consent Revocation on the Web — PETS 2025</title>
-  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-  <style>
-    :root{--bg:#0f1724;--card:#0b1220;--muted:#9aa4b2;--accent:#6ee7b7;--glass: rgba(255,255,255,0.03)}
-    *{box-sizing:border-box}body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;background:linear-gradient(180deg,#071226 0%, #071a2e 60%);color:#e6eef6;line-height:1.6}
-    .container{max-width:1150px;margin:32px auto;padding:24px}
-    header{display:flex;gap:16px;align-items:center}
-    .logo{width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,#0ea5a9,#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:800;color:#061023}
-    h1{margin:0;font-size:30px}
-    .byline{color:var(--muted);margin-top:6px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:22px}
-    .card{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.7);border:1px solid rgba(255,255,255,0.03)}
-    .stat{font-size:28px;font-weight:700}
-    .muted{color:var(--muted);font-size:13px}
-    .section{margin-top:28px}
-    .lead{color:#cfe7f3;font-size:15px}
-    .authors{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
-    .author{background:var(--glass);padding:10px;border-radius:10px;font-size:13px}
-    .cta{display:inline-block;margin-top:14px;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,#2563eb,#7c3aed);color:white;text-decoration:none;font-weight:600}
-    footer{margin-top:36px;color:var(--muted);font-size:13px;text-align:center}
-    .cols{display:grid;grid-template-columns:1fr 380px;gap:16px}
-    @media (max-width:900px){.cols{grid-template-columns:1fr}}
-    .example{background:rgba(255,255,255,0.03);padding:10px;border-left:3px solid #6ee7b7;margin-top:8px;border-radius:8px;font-size:13px}
-    a.link{color:var(--accent)}
-  </style>
-</head>
-<body>
-  <div class="container">
-    <header>
-      <div class="logo">PETS</div>
-      <div>
-        <h1>Measuring Compliance of Consent Revocation on the Web</h1>
-        <div class="byline">Presented at Privacy Enhancing Technologies Symposium (PETS) 2025 — Washington DC, USA</div>
-        <div class="authors">
-          <div class="author">Gayatri P. Kancherla — IIT Gandhinagar, India</div>
-          <div class="author">Nataliia Bielova — Inria Centre at Univ Côte d’Azur, France</div>
-          <div class="author">Cristiana Santos — Utrecht University, Netherlands</div>
-          <div class="author">Abhishek Bichhawat — IIT Gandhinagar, India</div>
-        </div>
-      </div>
-    </header>
+import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
-    <section class="section cols">
-      <div>
-        <div class="card">
-          <div class="muted">Summary</div>
-          <p class="lead">The GDPR and ePrivacy Directive guarantee users the right to withdraw consent at any time. Yet, little is known about how websites implement this in practice. This paper examines 200 popular websites and their <strong>Consent Management Platforms (CMPs)</strong> — specifically IAB Europe’s Transparency and Consent Framework (TCF) and OneTrust — to assess whether they offer compliant and functional ways to revoke consent.</p>
-          <p class="lead">Our study found that nearly half of the websites do not comply with legal and technical standards for revocation. Many either hide the revocation option or make it harder to withdraw consent than to give it. Even when users revoke consent, websites frequently fail to update stored records or notify third parties. Consequently, advertising and analytics cookies often remain active even after consent has been revoked.</p>
-          <a class="cta" href="https://petsymposium.org/popets/2025/popets-2025-0133.pdf" target="_blank">Read full paper (PDF)</a>
-        </div>
+export default function ConsentRevocation() {
+  const sections = [
+    {
+      title: "Different interface to revoke consent",
+      legal: "Revoking consent must be as easy as giving it and accessible through the same interface. Users shouldn’t have to search throughout privacy policies, send emails, or visit external sites to revoke consent.",
+      results: "20% websites (32 out of 158) provide consent revocation through interfaces that differ from the initial consent banner. Users must sometimes delete cookies manually or contact website owners via email.",
+      examples: [
+        {
+          name: "apple.com",
+          description: "Users must visit the privacy policy and manually search for the word 'cookie' to find instructions to delete cookies from browser settings to revoke consent.",
+          image: "/images/apple.png",
+        },
+      ],
+    },
+    {
+      title: "More effort to revoke consent than to give consent",
+      legal: "Revoking consent must be as easy as giving it, requiring the same number of steps or clicks.",
+      results: "22% of websites (35 out of 158) require more steps to revoke consent than to grant it.",
+      examples: [
+        {
+          name: "goo.gl",
+          description: "User must navigate through multiple steps and pages to find the revocation link hidden in the privacy policy.",
+          image: "/images/googl.png",
+        },
+      ],
+    },
+    {
+      title: "Absence of a revocation mechanism",
+      legal: "Users have the right to revoke consent at any time. Websites must make it easy and visible to do so.",
+      results: "6% of websites (9 out of 158) did not provide any means to revoke consent.",
+    },
+  ];
 
-        <div class="grid">
-          <div class="card">
-            <div class="muted">Non-compliant interfaces</div>
-            <div class="stat">49%</div>
-            <div class="muted">Websites fail to provide accessible revocation options.</div>
-          </div>
-          <div class="card">
-            <div class="muted">Storage/communication failures</div>
-            <div class="stat">66%</div>
-            <div class="muted">Websites incorrectly store or fail to communicate revocation.</div>
-          </div>
-          <div class="card">
-            <div class="muted">Cookies persist post-revocation</div>
-            <div class="stat">57%</div>
-            <div class="muted">Websites continue to store tracking cookies even after withdrawal.</div>
-          </div>
-        </div>
+  return (
+    <div className="p-10 space-y-10">
+      <section className="text-center">
+        <h1 className="text-5xl font-bold mb-4">Measuring Compliance of Consent Revocation on the Web</h1>
+        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          This study investigates how websites implement consent revocation in accordance with GDPR and ePrivacy Directive. Our analysis of 200 popular websites reveals widespread non-compliance in revocation mechanisms, consent storage, and communication to third parties.
+        </p>
+      </section>
 
-        <div class="card section">
-          <div class="muted">Detailed Violations and Examples</div>
-          <h3>1. Different Interface to Revoke Consent</h3>
-          <p>According to GDPR, revocation must be as easy as giving consent and accessible through the same interface. However, 20% of websites use completely different mechanisms. For instance, <strong>apple.com</strong> requires users to locate revocation instructions hidden within the privacy policy, often redirecting them to browser settings.</p>
-          <div class="example">Example: On <em>apple.com</em>, users must open “Privacy Policy → Cookies” and manually delete cookies through browser settings — an approach that fails accessibility and simplicity standards.</div>
-
-          <h3>2. More Effort to Revoke than Accept</h3>
-          <p>22% of websites require multiple steps to revoke consent compared to a single click for “Accept all.” For example, <strong>google.com</strong> and <strong>twitter.com</strong> require navigating through several menus to reopen the banner.</p>
-          <div class="example">Example: On <em>goo.gl</em>, revoking consent took seven steps — starting from Privacy Policy navigation to finding a link buried under “cookies.”</div>
-
-          <h3>3. Absence of a Revocation Mechanism</h3>
-          <p>6% of websites, including <strong>un.org</strong> and <strong>weibo.com</strong>, provided no revocation option at all. Such sites continue to collect analytics and advertising data, violating the GDPR’s lawfulness principle.</p>
-
-          <h3>4. Incorrect Storage of Revocation</h3>
-          <p>We found that 12–15% of CMP-based sites store a <strong>positive consent</strong> even after the user revokes it. This issue was frequent on <strong>msn.com</strong>, <strong>cisco.com</strong>, and <strong>forbes.com</strong>.</p>
-
-          <h3>5. No Notification to Third Parties</h3>
-          <p>Revocation was rarely communicated to third parties. 74% of websites failed to notify all parties who received the initial consent signal. This means ad networks like <strong>cnn.com</strong>, <strong>bbc.com</strong>, and <strong>wsj.com</strong> continued to receive consented data.</p>
-
-          <h3>6. Cookies Persist After Revocation</h3>
-          <p>57% of sites continued to store advertising and analytics cookies post-revocation. Popular offenders include <strong>microsoft.com</strong>, <strong>twitter.com</strong>, and <strong>amazon.com</strong>.</p>
-          <div class="example">Example: After revocation, <em>youtube.com</em> still retained <code>YSC</code> and <code>VISITOR_INFO1_LIVE</code> cookies — both used for analytics and ad personalization.</div>
-        </div>
-
-        <div class="card section">
-          <h3>Recommendations</h3>
-          <ul>
-            <li>Revocation must be visible, one-click, and equally simple as consent acceptance.</li>
-            <li>Standardize consent-revocation signaling within CMP APIs and storage formats.</li>
-            <li>Implement reliable third-party notification mechanisms for revoked consent.</li>
-            <li>Mandate automated cookie deletion after revocation.</li>
-          </ul>
-        </div>
-      </div>
-
-      <aside>
-        <div class="card">
-          <div class="muted">Methodology</div>
-          <p class="muted">We audited 200 popular websites, manually analyzed revocation UI/UX, and used automated scripts to observe how consent decisions were stored and transmitted. CMP-specific storage was evaluated using <code>TCString</code> and OneTrust’s <code>OptanonConsent</code> cookies.</p>
-        </div>
-
-        <div class="card" style="margin-top:12px">
-          <div class="muted">Compliance Chart</div>
-          <canvas id="revocationChart" width="380" height="220"></canvas>
-          <script>
-            const ctx = document.getElementById('revocationChart');
-            new Chart(ctx, {
-              type: 'doughnut',
-              data: {
-                labels: ['Different interface','More effort','No revocation','Compliant'],
-                datasets: [{data:[20,22,6,52],backgroundColor:['#f59e0b','#ef4444','#dc2626','#10b981'],cutout:'60%'}]
-              },
-              options:{plugins:{legend:{position:'bottom',labels:{color:'#cfe7f3'}}}}
-            });
-          </script>
-        </div>
-
-        <div class="card" style="margin-top:12px">
-          <div class="muted">Presentation</div>
-          <p class="muted">Accepted at PETS 2025. To be presented 14–19 July 2025, Washington DC, USA.</p>
-        </div>
-
-        <div class="card" style="margin-top:12px">
-          <div class="muted">Contact</div>
-          <p style="font-size:13px">Gayatri — <a class="link" href="mailto:gayatripriyadarsini@iitgn.ac.in">gayatripriyadarsini@iitgn.ac.in</a></p>
-        </div>
-      </aside>
-    </section>
-
-    <!-- <footer>
-      <p>This site summarizes the PETS 2025 paper “Measuring Compliance of Consent Revocation on the Web”. Licensed under CC BY 4.0.</p>
-      <p class="muted">To host: Save as <code>index.html</code> in your GitHub Pages repo (<code>username.github.io</code>).</p>
-    </footer> -->
-  </div>
-</body>
-</html>
+      {sections.map((s, i) => (
+        <Card key={i} className="p-6 shadow-lg rounded-2xl">
+          <CardContent className="space-y-6">
+            <motion.h2 className="text-2xl font-semibold text-blue-600">{s.title}</motion.h2>
+            <p><strong>⚖ Legal Requirement:</strong> {s.legal}</p>
+            <p><strong>📊 Results:</strong> {s.results}</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {s.examples.map((ex, j) => (
+                <div key={j} className="flex flex-col md:flex-row items-center gap-4 border rounded-xl p-4 bg-gray-50">
+                  <div className="md:w-1/2">
+                    <img
+                      src={ex.image}
+                      alt={ex.name}
+                      className="rounded-xl shadow-md w-full h-auto object-cover"
+                    />
+                  </div>
+                  <div className="md:w-1/2">
+                    <h3 className="text-lg font-semibold">{ex.name}</h3>
+                    <p className="text-gray-700">{ex.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  );
+}
