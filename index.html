@@ -77,7 +77,7 @@
         <div class="card section">
           <div class="muted">Detailed Violations and Examples</div>
           <h3>1. Different Interface to Revoke Consent</h3>
-          <p>According to GDPR, revocation must be as easy as giving consent and accessible through the same interface. However, 20% of websites use completely different mechanisms. For instance, <strong>apple.com</strong> requires users to locate revocation instructions hidden within the privacy policy, often redirecting them to browser settings.</p>
+          <p>According to GDPR, revocation must be as easy as giving consent and accessible through the same interface. However, 20% of websites use completely different mechanisms. We observed revocation options that require users to delete cookies from the browser settings, contact website owners via email, or redirect the user to third-party platforms, such as youronlinechoices.eu or aboutads.info. One website, tumblr.com, even required users to log in before they could revoke their consent. These violations are found on popular websites such as apple.com, wordpress.org, medium.com, and discord.com.</p>
           <div class="example" style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-start;">
             <!-- Text column -->
             <div style="flex: 1 1 55%;">
@@ -89,7 +89,7 @@
           </div>
 
           <h3>2. More Effort to Revoke than Accept</h3>
-          <p>22% of websites require multiple steps to revoke consent compared to a single click for “Accept all.” For example, <strong>google.com</strong> and <strong>twitter.com</strong> require navigating through several menus to reopen the banner.</p>
+          <p>22% of websites require multiple steps to revoke consent compared to a single click for “Accept all.” For example, <strong>google.com</strong> and <strong>twitter.com</strong> require navigating through several pages to reopen the banner.</p>
           <!-- <div class="example">Example: On <em>goo.gl</em>, revoking consent took seven steps — starting from Privacy Policy navigation to finding a link buried under “cookies.”</div> -->
           <div class="example" style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-start;">
             <!-- Text column -->
@@ -116,15 +116,47 @@
         </div>
 
         <div class="card section">
-          <h3>Recommendations</h3>
-          <ul>
-            <li>Revocation must be visible, one-click, and equally simple as consent acceptance.</li>
-            <li>Standardize consent-revocation signaling within CMP APIs and storage formats.</li>
-            <li>Implement reliable third-party notification mechanisms for revoked consent.</li>
-            <li>Mandate automated cookie deletion after revocation.</li>
-          </ul>
+          <h3>9 Recommendations</h3>
+          <p>In this section, we propose recommendations to regulators for enhancing the implementation of consent revocation and ensuring legal compliance, in light of our findings.</p>
+        
+          <ol>
+            <li>
+              <strong>R1. Unify EU consent revocation interface:</strong>
+              <p>
+                Websites implement revocation inconsistently (see Table 4). Texts in footers vary (“Cookie Settings”, “Privacy Settings”, “EU Privacy”), and revocation links in privacy policies may be unclear (“How do I control cookies...”). Icons also differ, causing confusion. Regulators should define unified interface requirements for location, wording, and appearance. Inspiration can be taken from CPRA regulation in California with three acceptable wordings to simplify compliance measurement.
+              </p>
+            </li>
+        
+            <li>
+              <strong>R2. Standardize consent storage:</strong>
+              <p>
+                Observed inconsistencies in TCStrings and OneTrust consent strings occur because multiple storage options are not updated simultaneously on revocation. Regulators should establish standards for consent storage and ensure integrity. Under SOP, third-party scripts can access first-party storage, potentially modifying consent strings, which may invalidate consent and violate GDPR Article 5(f).
+              </p>
+            </li>
+        
+            <li>
+              <strong>R3. Standardize consent communication via event listeners:</strong>
+              <p>
+                Only 43/163 websites used event listeners to inform third-parties of consent changes. OneTrust suggests adding them, but IAB Europe TCF lacks standardization, forcing CMPs to implement their own solutions. Standardization of event listeners and callbacks is needed, along with regulatory guidance on communication to third-parties.
+              </p>
+            </li>
+        
+            <li>
+              <strong>R4. Regulate consent communication via HTTP requests:</strong>
+              <p>
+                The most common violation: 74.2% of websites fail to inform all third-parties via HTTP requests when consent is revoked. Regulators should define clear standards and best practices for these communications.
+              </p>
+            </li>
+        
+            <!-- Add R5–R9 here following the same format -->
+            <!-- Example for R5 -->
+            <li>
+              <strong>R5. ...</strong>
+              <p>Details of recommendation 5...</p>
+            </li>
+          </ol>
         </div>
-      </div>
+
 
       <aside>
         <div class="card">
